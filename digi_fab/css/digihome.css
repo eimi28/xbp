@@ -1,0 +1,168 @@
+/* ===== おしゃれなポートフォリオデザイン ===== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 35px 7%;
+    background: #faf7f2;
+    color: #5d5148;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    line-height: 1.9;
+}
+
+/* ロゴ */
+logotohome {
+    display: block;
+    margin-bottom: 25px;
+}
+
+logotohome img {
+    transition: 0.3s;
+}
+
+logotohome img:hover {
+    transform: rotate(-5deg) scale(1.08);
+}
+
+/* メインタイトル */
+h1 {
+    font-family: "Raleway", sans-serif;
+    font-size: 25px;
+    letter-spacing: 0.12em;
+    color: #a78577;
+    margin: 15px 0 5px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e6d7cb;
+}
+
+/* サブタイトル */
+h2 {
+    font-size: 19px;
+    font-weight: normal;
+    color: #907568;
+    margin: 30px 0 20px;
+}
+
+/* 課題一覧 */
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    max-width: 650px;
+    counter-reset: project;
+}
+
+ol li {
+    counter-increment: project;
+    margin: 14px 0;
+}
+
+/* リンクをカード風に */
+ol li a {
+    display: block;
+    position: relative;
+    padding: 18px 48px 18px 22px;
+    background: #fffdf9;
+    border: 1px solid #eaded3;
+    border-radius: 12px;
+    color: #705c50;
+    text-decoration: none;
+    box-shadow: 0 3px 10px #7d62500a;
+    transition: all 0.25s ease;
+}
+
+/* カード右側の矢印 */
+ol li a::after {
+    content: "↗";
+    position: absolute;
+    right: 20px;
+    color: #b99587;
+    transition: transform 0.25s;
+}
+
+/* マウスを乗せたとき */
+ol li a:hover {
+    background: #f1e4de;
+    border-color: #d9bdb2;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px #7d625015;
+}
+
+ol li a:hover::after {
+    transform: translate(3px, -3px);
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    body {
+        padding: 25px 6%;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    ol li a {
+        padding: 15px 40px 15px 16px;
+    }
+}
+
+/* ページの高さを画面いっぱいにする */
+html {
+    min-height: 100%;
+    background-color: #faf7f2;
+}
+
+body {
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #faf7f2;
+}
+
+/* ===== パステルピンクに色だけ変更 ===== */
+
+html,
+body {
+    background-color: #FFF5F8;
+    color: #6F5360;
+}
+
+/* XBPのタイトル */
+h1 {
+    color: #C58DA5;
+    border-bottom-color: #F0D5E1;
+}
+
+/* ポートフォリオ一覧の見出し */
+h2 {
+    color: #B78399;
+}
+
+/* リンクのカード */
+ol li a {
+    background-color: #FFFBFD;
+    border-color: #F0DCE5;
+    color: #765666;
+    box-shadow: 0 4px 14px #D9A9BD18;
+}
+
+/* カーソルを合わせたとき */
+ol li a:hover {
+    background-color: #FCE8F0;
+    border-color: #E8BED0;
+    box-shadow: 0 8px 20px #D9A9BD30;
+}
+
+/* カード右側の矢印 */
+ol li a::after {
+    color: #C58DA5;
+}
+
+/* 下の飾り文字を使っている場合 */
+body::after {
+    color: #C58DA5;
+    border-top-color: #F0DCE5;
+}

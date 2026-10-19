@@ -30,7 +30,7 @@ logotohome img:hover {
 /* メインタイトル */
 h1 {
     font-family: "Raleway", sans-serif;
-    font-size: clamp(42px, 7vw, 68px);
+    font-size: 40px;
     letter-spacing: 0.12em;
     color: #a78577;
     margin: 15px 0 5px;

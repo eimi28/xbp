@@ -1,0 +1,158 @@
+/* ===== 全体 ===== */
+body {
+    background-color: #f7f3ed;
+    color: #5e554d;
+    text-align: left;
+    line-height: 2;
+    padding: 35px 6%;
+}
+
+/* ===== ページタイトル ===== */
+h1 {
+    display: table;
+    background-color: #e9ded1;
+    color: #786354;
+    font-size: 27px;
+    font-weight: normal;
+    padding: 8px 28px;
+    border: 1px solid #cdb9a7;
+    border-radius: 5px;
+    margin: 0 0 35px;
+}
+
+/* ===== セクション見出し ===== */
+h2 {
+    display: table;
+    background-color: #e9ded1;
+    color: #786354;
+    font-size: 19px;
+    font-weight: normal;
+    padding: 5px 18px;
+    border: 1px solid #d4c2b2;
+    border-radius: 4px;
+    margin: 35px 0 18px;
+}
+
+/* ===== 内容をまとめるカード ===== */
+.content-card {
+    background-color: #fffdf9;
+    border: 1px solid #e2d6c9;
+    border-radius: 12px;
+    padding: 22px;
+    margin: 12px 0 30px;
+    box-shadow: 0 3px 10px rgba(100, 80, 60, 0.05);
+    text-align: left;
+}
+
+/* ===== カード内の文章 ===== */
+.content-card p {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 10px 0;
+    line-height: 2;
+}
+
+/* ===== 写真 ===== */
+.content-card img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 7px;
+    border: 1px solid #e9ded1;
+    padding: 5px;
+    margin: 12px 0;
+    box-shadow: none;
+}
+
+/* ===== 動画 ===== */
+.content-card iframe {
+    max-width: 100%;
+    border-radius: 7px;
+    margin-right: 40px ;
+}
+
+/* ===== 設計ファイルのリンク ===== */
+.content-card a {
+    display: inline-block;
+    color: #806858;
+    background-color: #f0e7dc;
+    border: 1px solid #dfcdbb;
+    border-radius: 5px;
+    padding: 6px 14px;
+    margin: 5px 8px 5px 0;
+    text-decoration: none;
+}
+
+.content-card a:hover {
+    background-color: #e5d5c4;
+}
+
+/* ===== スマホ表示 ===== */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 20px 5%;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    .content-card {
+        padding: 15px;
+    }
+}
+
+/* すべての見出しをベージュの枠にする */
+h1,
+h2,
+h3 {
+    display: table !important;
+    background-color: #e9ded1 !important;
+    color: #786354 !important;
+    border: 1px solid #d4c2b2 !important;
+    border-left: 4px solid #c5a394 !important;
+    border-radius: 5px !important;
+    padding: 8px 18px !important;
+    margin: 30px 0 18px !important;
+    text-align: left !important;
+    font-weight: normal;
+}
+
+/* 内容を囲むカード */
+.content-card {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fffdf9;
+    border: 1px solid #e2d6c9;
+    border-radius: 12px;
+    padding: 22px;
+    margin: 12px 0 30px;
+    box-shadow: 0 3px 10px rgba(100, 80, 60, 0.05);
+    text-align: left;
+}
+
+/* カード内の見出しだけ余白を調整 */
+.content-card h2,
+.content-card h3 {
+    margin-top: 0 !important;
+}
+
+/* カード内の文章 */
+.content-card p {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 12px 0 !important;
+}
+
+/* カード内の写真 */
+.content-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px 0;
+}
+
+

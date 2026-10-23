@@ -1,4 +1,12 @@
-/* ===== おしゃれなポートフォリオデザイン ===== */
+```css
+/* ==================================
+   XBP CREATIVE PORTFOLIO
+   Pastel Pink × Future Technology
+================================== */
+
+* {
+    box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth;
@@ -6,163 +14,644 @@ html {
 
 body {
     margin: 0;
-    padding: 35px 7%;
-    background: #faf7f2;
-    color: #5d5148;
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    line-height: 1.9;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    color: #795c68;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 255, 255, 0.95),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(245, 205, 220, 0.45),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #fff8fa,
+            #f8e9f0,
+            #fdf4f6
+        );
+
+    font-family:
+        "Helvetica Neue",
+        "Yu Gothic",
+        sans-serif;
+}
+
+/* ページ全体 */
+
+.portfolio {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* ==================================
+   ヘッダー
+================================== */
+
+.hero {
+    position: relative;
+    padding: 65px 0 30px;
+    text-align: center;
+    animation: fadeUp 1s ease both;
+}
+
+.eyebrow {
+    margin: 0 0 20px;
+    color: #b98a9c;
+    font-size: 10px;
+    letter-spacing: 6px;
 }
 
 /* ロゴ */
-logotohome {
+
+.logo {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.logo img {
     display: block;
-    margin-bottom: 25px;
+    width: 65px;
+    height: auto;
+    margin: 0 auto;
+    transition: transform 0.5s ease;
 }
 
-logotohome img {
-    transition: 0.3s;
+.logo:hover img {
+    transform: rotate(-8deg) scale(1.08);
 }
 
-logotohome img:hover {
-    transform: rotate(-5deg) scale(1.08);
+/* タイトル */
+
+.hero h1 {
+    margin: 0;
+
+    color: #bd8299;
+
+    font-family: Georgia, serif;
+    font-size: clamp(65px, 10vw, 105px);
+    font-weight: 400;
+    letter-spacing: 12px;
+    line-height: 1.15;
+
+    text-shadow:
+        0 0 25px rgba(229, 168, 194, 0.25);
 }
 
-/* メインタイトル */
-h1 {
-    font-family: "Raleway", sans-serif;
-    font-size: 40px;
-    letter-spacing: 0.12em;
-    color: #a78577;
-    margin: 15px 0 5px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #e6d7cb;
+.hero h2 {
+    margin: 18px 0 28px;
+
+    color: #997281;
+
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+
+/* 自己紹介 */
+
+.intro {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro p {
+    width: 100%;
+    margin: 8px 0;
+    padding: 0;
+    text-align: center;
+    color: #927984;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* ==================================
+   スクロールインジケーター
+================================== */
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    margin: 18px auto 0;
+    padding: 0;
+    gap: 6px;
+
+    color: #b28a9b;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 35px;
+
+    background: linear-gradient(
+        to bottom,
+        #c68ca5,
+        transparent
+    );
+
+    animation: lineMove 1.8s ease-in-out infinite;
+}
+
+/* ==================================
+   作品カード一覧
+================================== */
+
+.works {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+
+    padding: 10px 0 85px;
+}
+
+/* カード */
+
+.work-card {
+    position: relative;
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    color: inherit;
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 28px rgba(173, 119, 145, 0.08),
+        inset 0 0 15px rgba(255, 255, 255, 0.7);
+
+    animation: fadeUp 0.8s ease both;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.work-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+/* ホバーで浮き上がる */
+
+.work-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(255, 255, 255, 1);
+
+    box-shadow:
+        0 15px 40px rgba(183, 119, 151, 0.2),
+        0 0 18px rgba(255, 255, 255, 0.9);
+}
+
+/* ==================================
+   画像エリア
+================================== */
+
+.work-image {
+    position: relative;
+    min-height: 220px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 22px;
+
+    isolation: isolate;
+}
+
+/* デザイン演習 */
+
+.design-image {
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(255, 255, 255, 0.95),
+            transparent 18%
+        ),
+        linear-gradient(
+            135deg,
+            #f1d5df,
+            #e8c1d0,
+            #f8e8ee
+        );
+}
+
+/* デジタルファブリケーション */
+
+.digital-image {
+    background:
+        radial-gradient(
+            circle at 65% 35%,
+            rgba(255, 255, 255, 0.9),
+            transparent 15%
+        ),
+        linear-gradient(
+            135deg,
+            #e5d7eb,
+            #eecbdc,
+            #f8e5ed
+        );
+}
+
+/* 背景のテクノロジー風グリッド */
+
+.work-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.28) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.28) 1px,
+            transparent 1px
+        );
+
+    background-size: 28px 28px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black
+    );
+
+    opacity: 0.55;
+}
+
+/* 光の輪 */
+
+.image-decoration {
+    position: absolute;
+    top: 22%;
+    right: 18%;
+
+    width: 100px;
+    height: 100px;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.45),
+        inset 0 0 20px rgba(255, 255, 255, 0.25);
+
+    animation: orbitGlow 5s ease-in-out infinite alternate;
+}
+
+.image-decoration::before {
+    content: "";
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+    background: white;
+
+    box-shadow:
+        0 0 12px white,
+        0 0 24px #e9b6ce;
+
+    transform: translate(-50%, -50%);
+}
+
+/* 番号 */
+
+.image-number {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+
+    color: rgba(255, 255, 255, 0.95);
+
+    font-family: Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* 画像エリアの文字 */
+
+.image-label {
+    position: relative;
+    z-index: 1;
+
+    color: rgba(255, 255, 255, 0.95);
+
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+/* ==================================
+   カード内のタイトル
+================================== */
+
+.work-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 22px 24px 25px;
+}
+
+.category {
+    margin: 0 0 8px;
+
+    color: #bd8ca0;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.work-info h3 {
+    margin: 0;
+
+    color: #826472;
+
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+/* 矢印ボタン */
+
+.arrow {
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid rgba(213, 164, 185, 0.65);
+    border-radius: 50%;
+
+    color: #b47d96;
+    font-size: 18px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.work-card:hover .arrow {
+    color: white;
+    background: #d8a1b7;
+
+    transform: rotate(45deg);
+
+    box-shadow:
+        0 0 15px rgba(216, 161, 183, 0.5);
+}
+
+/* ==================================
+   フッター
+================================== */
+
+footer {
+    padding: 25px 0 35px;
+
+    border-top: 1px solid rgba(190, 143, 163, 0.25);
+
+    color: #b294a1;
+
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+footer span {
+    display: block;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* ==================================
+   アニメーション
+================================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineMove {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scaleY(0.75);
+        transform-origin: top;
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}
+
+@keyframes orbitGlow {
+    from {
+        transform: scale(0.92) rotate(0deg);
+        opacity: 0.55;
+    }
+
+    to {
+        transform: scale(1.08) rotate(20deg);
+        opacity: 1;
+    }
+}
+
+/* 動きを減らす設定を使っている場合 */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==================================
+   スマートフォン対応
+================================== */
+
+@media (max-width: 600px) {
+
+    .portfolio {
+        width: calc(100% - 30px);
+    }
+
+    .hero {
+        padding: 45px 0 35px;
+    }
+
+    .hero h1 {
+        font-size: 68px;
+        letter-spacing: 8px;
+    }
+
+    .hero h2 {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .works {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-bottom: 55px;
+    }
+
+    .work-image {
+        min-height: 200px;
+    }
+
+    .work-info {
+        padding: 18px;
+    }
+}
+```
+
+```css
+/* XBPのヘッダー全体を中央揃え */
+.portfolio .hero {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 上の英字・XBP・下の英字を中央揃え */
+.portfolio .hero .eyebrow,
+.portfolio .hero h1,
+.portfolio .hero h2 {
+    display: block;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+/* XBPの文字の大きさと位置 */
+.portfolio .hero h1 {
+    font-size: clamp(65px, 10vw, 105px);
+    letter-spacing: 12px;
+    text-indent: 12px;
 }
 
 /* サブタイトル */
-h2 {
-    font-size: 19px;
-    font-weight: normal;
-    color: #907568;
-    margin: 30px 0 20px;
+.portfolio .hero h2 {
+    font-size: 14px;
+    letter-spacing: 5px;
 }
+```
 
-/* 課題一覧 */
-ol {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    max-width: 650px;
-    counter-reset: project;
-}
+```css
+/* ==================================
+   画面の見切れ・右側の余白を修正
+================================== */
 
-ol li {
-    counter-increment: project;
-    margin: 14px 0;
-}
-
-/* リンクをカード風に */
-ol li a {
-    display: block;
-    position: relative;
-    padding: 18px 48px 18px 22px;
-    background: #fffdf9;
-    border: 1px solid #eaded3;
-    border-radius: 12px;
-    color: #705c50;
-    text-decoration: none;
-    box-shadow: 0 3px 10px #7d62500a;
-    transition: all 0.25s ease;
-}
-
-/* カード右側の矢印 */
-ol li a::after {
-    content: "↗";
-    position: absolute;
-    right: 20px;
-    color: #b99587;
-    transition: transform 0.25s;
-}
-
-/* マウスを乗せたとき */
-ol li a:hover {
-    background: #f1e4de;
-    border-color: #d9bdb2;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px #7d625015;
-}
-
-ol li a:hover::after {
-    transform: translate(3px, -3px);
-}
-
-/* スマホ対応 */
-@media (max-width: 600px) {
-    body {
-        padding: 25px 6%;
-    }
-
-    h1 {
-        font-size: 42px;
-    }
-
-    ol li a {
-        padding: 15px 40px 15px 16px;
-    }
-}
-
-/* ページの高さを画面いっぱいにする */
+/* ページ全体を画面幅に合わせる */
 html {
+    width: 100%;
     min-height: 100%;
-    background-color: #faf7f2;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 body {
+    width: 100%;
     min-height: 100vh;
-    box-sizing: border-box;
-    background-color: #faf7f2;
+    margin: 0 !important;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-/* ===== パステルピンクに色だけ変更 ===== */
-
-html,
-body {
-    background-color: #FFF5F8;
-    color: #6F5360;
+/* ポートフォリオを画面幅に合わせる */
+.portfolio {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
 }
 
-/* XBPのタイトル */
-h1 {
-    color: #C58DA5;
-    border-bottom-color: #F0D5E1;
+/* 上の文字が見切れないようにする */
+.portfolio .hero {
+    padding-top: 40px !important;
+    overflow: visible;
 }
 
-/* ポートフォリオ一覧の見出し */
-h2 {
-    color: #B78399;
+/* MY UNIVERSITY LIFE */
+.portfolio .hero .eyebrow {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 auto 20px !important;
+    padding: 10px 0 0 !important;
+    line-height: 1.8;
+    text-align: center;
 }
 
-/* リンクのカード */
-ol li a {
-    background-color: #FFFBFD;
-    border-color: #F0DCE5;
-    color: #765666;
-    box-shadow: 0 4px 14px #D9A9BD18;
+/* 作品カードを画面幅に合わせる */
+.portfolio .works {
+    width: 100%;
+    margin: 0 auto;
 }
 
-/* カーソルを合わせたとき */
-ol li a:hover {
-    background-color: #FCE8F0;
-    border-color: #E8BED0;
-    box-shadow: 0 8px 20px #D9A9BD30;
-}
+/* 小さい画面では余白を調整 */
+@media (max-width: 600px) {
+    .portfolio {
+        padding: 0 15px;
+    }
 
-/* カード右側の矢印 */
-ol li a::after {
-    color: #C58DA5;
+    .portfolio .hero {
+        padding-top: 30px !important;
+    }
 }
+```
 
-/* 下の飾り文字を使っている場合 */
-body::after {
-    color: #C58DA5;
-    border-top-color: #F0DCE5;
-}

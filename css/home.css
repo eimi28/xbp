@@ -515,23 +515,42 @@ footer span {
     }
 }
 
+
 /* ==================================
    スマートフォン対応
 ================================== */
 
-@media (max-width: 600px) {
+html {
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width: 600px) {
 
     .portfolio {
-        width: calc(100% - 30px);
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0 16px;
     }
 
     .hero {
-        padding: 45px 0 35px;
+        width: 100%;
+        padding: 40px 0 30px;
     }
 
     .hero h1 {
-        font-size: 68px;
-        letter-spacing: 8px;
+        font-size: clamp(48px, 12vw, 68px);
+        letter-spacing: 6px;
+        text-indent: 0;
+        overflow-wrap: anywhere;
     }
 
     .hero h2 {
@@ -539,56 +558,51 @@ footer span {
         letter-spacing: 3px;
     }
 
+    .eyebrow {
+        font-size: 10px;
+        letter-spacing: 4px;
+    }
+
     .works {
-        grid-template-columns: 1fr;
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
         gap: 20px;
-        padding-bottom: 55px;
+        padding: 10px 0 55px;
+    }
+
+    .work-card {
+        width: 100%;
+        min-width: 0;
     }
 
     .work-image {
+        width: 100%;
         min-height: 200px;
+        padding: 18px;
     }
 
     .work-info {
+        width: 100%;
+        min-width: 0;
+        gap: 10px;
         padding: 18px;
     }
-}
-```
 
-```css
-/* XBPのヘッダー全体を中央揃え */
-.portfolio .hero {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-}
+    .work-info h3 {
+        font-size: 14px;
+        overflow-wrap: anywhere;
+    }
 
-/* 上の英字・XBP・下の英字を中央揃え */
-.portfolio .hero .eyebrow,
-.portfolio .hero h1,
-.portfolio .hero h2 {
-    display: block;
-    width: 100%;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0;
-    padding-right: 0;
-    text-align: center;
-}
+    .arrow {
+        flex-shrink: 0;
+    }
 
-/* XBPの文字の大きさと位置 */
-.portfolio .hero h1 {
-    font-size: clamp(65px, 10vw, 105px);
-    letter-spacing: 12px;
-    text-indent: 12px;
+    footer {
+        width: 100%;
+        padding: 25px 0 35px;
+        overflow-wrap: anywhere;
+    }
 }
-
-/* サブタイトル */
-.portfolio .hero h2 {
-    font-size: 14px;
-    letter-spacing: 5px;
-}
-```
 
 ```css
 /* ==================================

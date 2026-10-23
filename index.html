@@ -1,28 +1,144 @@
+
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>XBP_HPsample</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/homefirst.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>えいみのポートフォリオ</title>
+
+    <link rel="stylesheet" href="./css/home-girly.css">
 </head>
+
 <body>
-    <logotohome>
-    <a href="./index.html"><img src="./images/0_XBlogo.png" alt=""></a>
-    </logotohome>
-    <h1>XBP</h1>
-        <h2>えいみのポートフォリオ一覧</h2>
-        <!-- このようにするとコードとして認識されない。（メモができる）-->
-        <!--番号付きのリスト-->
-        <ol>
-            <li><a href="./de12/index.html">デザイン演習Ⅰ・Ⅱ</a></li>
-            <li><a href="./digi_fab/index.html">デジタルファブリケーション</a></li>
-        </ol>
 
-            
-        <br>
-        <br>
+    <!-- 背景の装飾 -->
+    <div class="floating-decor decor-heart" aria-hidden="true">♡</div>
+    <div class="floating-decor decor-star" aria-hidden="true">✧</div>
+    <div class="floating-decor decor-flower" aria-hidden="true">୨୧</div>
+    <div class="floating-decor decor-sparkle" aria-hidden="true">✦</div>
 
+    <main class="portfolio">
+
+        <!-- ロゴ -->
+        <header class="site-header">
+            <a href="./index.html" class="logo-link">
+                <img src="./images/0_XBlogo.png" alt="XBP ホーム">
+            </a>
+
+            <span class="header-label">MY CREATIVE WORLD ♡</span>
+        </header>
+
+        <!-- メインビジュアル -->
+        <section class="hero">
+
+            <p class="eyebrow">
+                WELCOME TO MY PORTFOLIO
+            </p>
+
+            <h1>XBP<span>.</span></h1>
+
+            <div class="title-decoration">
+                <span></span>
+                <span class="decoration-heart">♡</span>
+                <span></span>
+            </div>
+
+            <h2>えいみのポートフォリオ一覧</h2>
+
+            <p class="hero-description">
+                大学での学びと、ものづくりの記録。
+                <br>
+                My little creative archive 
+            </p>
+
+            <div class="scroll-guide">
+                <span>EXPLORE MY WORKS</span>
+                <span class="scroll-arrow">↓</span>
+            </div>
+
+        </section>
+
+        <!-- 作品一覧 -->
+        <section class="works-section">
+
+            <div class="section-heading">
+                <span class="section-caption">MY PROJECTS</span>
+                <h2>Explore my works <span>♡</span></h2>
+                <p>気になる作品を選んでね！</p>
+            </div>
+
+            <div class="works">
+
+                <!-- デザイン演習 -->
+                <a href="./de12/index.html" class="work-card card-design">
+
+                    <div class="card-top">
+                        <span class="card-number">01</span>
+                        <span class="card-symbol">୨୧</span>
+                    </div>
+
+                    <div class="card-illustration illustration-design">
+                        <span class="illustration-star star-one">✦</span>
+                        <span class="illustration-circle"></span>
+                        <span class="illustration-letter">D</span>
+                        <span class="illustration-star star-two">✧</span>
+                    </div>
+
+                    <div class="card-info">
+                        <span class="category">DESIGN & IDEAS</span>
+                        <h3>デザイン演習Ⅰ・Ⅱ</h3>
+                        <p>アイデアとデザインの記録</p>
+
+                        <div class="card-link">
+                            <span>VIEW PROJECT</span>
+                            <span class="link-arrow">↗</span>
+                        </div>
+                    </div>
+
+                </a>
+
+                <!-- デジタルファブリケーション -->
+                <a href="./digi_fab/index.html" class="work-card card-digital">
+
+                    <div class="card-top">
+                        <span class="card-number">02</span>
+                        <span class="card-symbol">♡</span>
+                    </div>
+
+                    <div class="card-illustration illustration-digital">
+                        <span class="digital-orbit orbit-one"></span>
+                        <span class="digital-orbit orbit-two"></span>
+                        <span class="illustration-letter">3D</span>
+                        <span class="illustration-star digital-star">✧</span>
+                    </div>
+
+                    <div class="card-info">
+                        <span class="category">DIGITAL CREATION</span>
+                        <h3>デジタルファブリケーション</h3>
+                        <p>3Dモデリングとものづくり</p>
+
+                        <div class="card-link">
+                            <span>VIEW PROJECT</span>
+                            <span class="link-arrow">↗</span>
+                        </div>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- フッター -->
+        <footer class="site-footer">
+            <div class="footer-decoration">♡　✧　♡</div>
+            <p>⭐︎ creative archive ⭐︎</p>
+            <span>MY PORTFOLIO · XBP</span>
+        </footer>
+
+    </main>
 
 </body>
 </html>
+```

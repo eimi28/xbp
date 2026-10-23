@@ -1,0 +1,95 @@
+/* ==========================================
+
+   KOREAN BLUE × LAVENDER
+
+   Soft, dreamy & animated portfolio
+
+========================================== */
+
+
+
+:root {
+
+    --pink: #c6c9f3;
+
+    --pink-dark: #8d91c8;
+
+    --pink-light: #f0f5ff;
+
+    --pink-pale: #f8f9ff;
+
+    --text: #5f6488;
+
+    --muted: #9298bb;
+
+    --white: #ffffff;
+
+}
+
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+
+html {
+
+    min-height: 100%;
+
+    scroll-behavior: smooth;
+
+}
+
+
+
+body {
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    padding: 0;
+
+
+
+    color: var(--text);
+
+    font-family:
+
+        "Hiragino Kaku Gothic ProN",
+
+        "Yu Gothic",
+
+        sans-serif;
+
+
+
+    line-height: 1.8;
+
+
+
+    background:
+
+        radial-gradient(
+
+            ellipse at 8% 12%,
+
+            rgba(255, 255, 255, 0.95),
+
+            transparent 30%
+
+        ),
+
+        radial-gradient(
+
+            ellipse at 92% 40%,
+
+            rgba(198, 215, 250, 0.48),
+
+            transparent 32%
+
+        ),

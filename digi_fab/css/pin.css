@@ -154,5 +154,44 @@ h3 {
     display: block;
     margin: 15px 0;
 }
+/* ページ全体を画面いっぱいに広げる */
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #f7f3ed !important;
+    box-sizing: border-box;
+}
 
+/* コンテンツの横幅を広げる */
+body > * {
+    max-width: none !important;
+}
 
+/* ページ内のメインコンテンツ */
+main,
+.container,
+.content,
+section,
+article {
+    width: 100%;
+    max-width: none !important;
+    box-sizing: border-box;
+}
+
+/* ページの左右の余白を調整 */
+body {
+    padding: 30px 5% !important;
+}
+
+.animal-links{
+    display:flex;
+    gap:30px;
+}
+
+.animal-links img{
+    width:150px;
+    cursor:pointer;
+}

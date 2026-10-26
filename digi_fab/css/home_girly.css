@@ -1,0 +1,613 @@
+```css
+/* ========================================
+   DIGITAL FABRICATION
+   Pale Blue × Light Cyan
+======================================== */
+
+:root {
+    --blue: #DCEEFF;
+    --cyan: #D9F5FA;
+    --blue-light: #F3FAFF;
+    --blue-dark: #779FC4;
+    --text: #58758F;
+    --muted: #91A9BC;
+    --line: #DFEDF7;
+    --white: #FFFFFF;
+}
+
+/* 基本設定 */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    background: #F0F8FF;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 25px 24px 0;
+
+    color: var(--text);
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    line-height: 1.8;
+
+    background:
+        radial-gradient(
+            ellipse at 8% 10%,
+            rgba(255, 255, 255, .98),
+            transparent 33%
+        ),
+        radial-gradient(
+            ellipse at 92% 35%,
+            rgba(190, 237, 250, .55),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #F7FBFF 0%,
+            #EDF7FF 48%,
+            #E5F7FC 100%
+        );
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+/* 背景の飾り */
+body::before,
+body::after {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+
+    color: rgba(126, 180, 218, .28);
+    animation: floatSoft 6s ease-in-out infinite;
+}
+
+body::before {
+    content: "♡";
+    top: 28%;
+    left: 5%;
+    font-size: 40px;
+}
+
+body::after {
+    content: "✧";
+    right: 6%;
+    bottom: 15%;
+    color: rgba(117, 200, 221, .38);
+    font-size: 38px;
+    animation-delay: -3s;
+}
+
+/* ヘッダー */
+.site-header {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1050px);
+    margin: 0 auto;
+}
+
+.home-logo {
+    display: inline-flex;
+    align-items: center;
+}
+
+.home-logo img {
+    display: block;
+    width: 58px;
+    max-width: 100%;
+    height: auto;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+.home-logo:hover img {
+    transform: rotate(-6deg) scale(1.05);
+    filter: drop-shadow(0 5px 8px rgba(126, 180, 218, .35));
+}
+
+/* ページ全体 */
+.portfolio {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1050px);
+    margin: 0 auto;
+}
+
+/* タイトル */
+.page-intro {
+    padding: 24px 0 38px;
+    text-align: center;
+    animation: fadeUp .8s ease both;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: #83A9C9;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+h1 {
+    margin: 0;
+    color: #6489AC;
+    font-family: Georgia, "Yu Mincho", serif;
+    font-size: clamp(25px, 4vw, 36px);
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.title-symbol {
+    display: inline-block;
+    color: #83C9DE;
+    animation: symbolFloat 3s ease-in-out infinite;
+}
+
+.intro-text {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: .5px;
+}
+
+.intro-decoration {
+    margin-top: 17px;
+    color: #8FCBDD;
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+
+/* セクション */
+.work-section {
+    margin-top: 10px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+}
+
+.section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 31px;
+    height: 31px;
+    flex: 0 0 31px;
+
+    color: #7199BC;
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    background: linear-gradient(135deg, #DCEEFF, #D9F5FA);
+    border: 1px solid rgba(255, 255, 255, .95);
+    border-radius: 50%;
+}
+
+h2 {
+    margin: 0;
+    color: #668BAE;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* カード一覧 */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 300px));
+    gap: 20px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* カード */
+.work-card {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    animation: cardAppear .7s ease both;
+}
+
+.work-card a {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 340px;
+    height: 100%;
+    padding: 18px;
+
+    color: var(--text);
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, .84);
+    border: 1px solid rgba(255, 255, 255, .98);
+    border-radius: 21px;
+
+    box-shadow: 0 10px 28px rgba(126, 165, 203, .13);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+    overflow: hidden;
+}
+
+/* カード番号 */
+.card-number {
+    align-self: flex-start;
+    color: #8DAAC8;
+    font-family: Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* カードのビジュアル */
+.card-visual {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 155px;
+    margin: 14px 0 18px;
+
+    color: white;
+    background: linear-gradient(
+        135deg,
+        #D7EAFF 0%,
+        #DDF1FC 52%,
+        #DDF8FA 100%
+    );
+
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform .4s ease;
+}
+
+/* 3Dの丸いモチーフ */
+.visual-ring {
+    position: absolute;
+    width: 105px;
+    height: 105px;
+
+    border: 1px solid rgba(255, 255, 255, .85);
+    border-radius: 50%;
+
+    box-shadow: 0 0 0 9px rgba(255, 255, 255, .10);
+    animation: ringPulse 4s ease-in-out infinite;
+}
+
+.visual-text {
+    position: relative;
+    z-index: 1;
+
+    color: rgba(255, 255, 255, .98);
+    font-family: Georgia, serif;
+    font-size: 57px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-shadow: 0 3px 12px rgba(104, 158, 194, .12);
+}
+
+.visual-sparkle {
+    position: absolute;
+    color: rgba(255, 255, 255, .95);
+}
+
+.sparkle-one {
+    top: 23%;
+    left: 16%;
+    font-size: 20px;
+}
+
+.sparkle-two {
+    right: 17%;
+    bottom: 20%;
+    font-size: 15px;
+}
+
+/* カードの文字 */
+.card-category {
+    margin-bottom: 5px;
+    color: #81A9C8;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.card-title {
+    color: #58758F;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.card-description {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* カード下部 */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    margin-top: auto;
+    padding-top: 14px;
+
+    color: #85A9C8;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+
+    border-top: 1px solid #E4EFF7;
+}
+
+.card-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+
+    color: #699ABF;
+    font-size: 13px;
+    letter-spacing: 0;
+
+    background: linear-gradient(135deg, #DCEEFF, #D9F5FA);
+    border: 1px solid #DDEBF7;
+    border-radius: 50%;
+
+    transition:
+        transform .3s ease,
+        color .3s ease,
+        background .3s ease;
+}
+
+/* ホバー */
+.work-card a:hover {
+    transform: translateY(-5px);
+    border-color: white;
+
+    box-shadow:
+        0 16px 34px rgba(126, 165, 203, .2),
+        0 0 18px rgba(180, 225, 245, .3);
+}
+
+.work-card a:hover .card-visual {
+    transform: scale(1.02);
+}
+
+.work-card a:hover .card-arrow {
+    transform: rotate(45deg);
+    color: white;
+    background: linear-gradient(135deg, #8BB7DB, #82D0DF);
+}
+
+/* フッター */
+.site-footer {
+    margin-top: 60px;
+    padding: 24px 0 30px;
+    text-align: center;
+    border-top: 1px solid rgba(160, 199, 225, .4);
+}
+
+.footer-decoration {
+    color: #83C9DE;
+    font-size: 16px;
+    letter-spacing: 5px;
+}
+
+.site-footer p {
+    margin: 8px 0 2px;
+    color: #7199BC;
+    font-family: Georgia, serif;
+    font-size: 12px;
+}
+
+.site-footer span {
+    color: #9BB0C2;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* アニメーション */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatSoft {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+        opacity: .45;
+    }
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+        opacity: .85;
+    }
+}
+
+@keyframes symbolFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes ringPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: .8;
+    }
+    50% {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+}
+
+/* タブレット */
+@media (max-width: 760px) {
+    body {
+        padding: 20px 18px 0;
+        background-attachment: scroll;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .work-card a {
+        min-height: 300px;
+        padding: 14px;
+    }
+
+    .card-visual {
+        min-height: 125px;
+    }
+
+    .visual-text {
+        font-size: 48px;
+    }
+}
+
+/* スマートフォン */
+@media (max-width: 520px) {
+    body {
+        padding: 17px 15px 0;
+    }
+
+    .home-logo img {
+        width: 49px;
+    }
+
+    .page-intro {
+        padding: 22px 0 28px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .intro-text {
+        font-size: 11px;
+    }
+
+    .section-heading {
+        gap: 10px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    .section-number {
+        width: 28px;
+        height: 28px;
+        flex-basis: 28px;
+    }
+
+    .card-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .work-card a {
+        min-height: 0;
+        padding: 13px;
+        border-radius: 16px;
+    }
+
+    .card-visual {
+        min-height: 115px;
+        margin: 10px 0 12px;
+    }
+
+    .visual-text {
+        font-size: 42px;
+    }
+
+    .card-title {
+        font-size: 15px;
+    }
+
+    .card-footer {
+        margin-top: 15px;
+        padding-top: 10px;
+    }
+
+    .site-footer {
+        margin-top: 40px;
+    }
+
+    body::before {
+        left: 2%;
+        font-size: 27px;
+    }
+
+    body::after {
+        right: 3%;
+        font-size: 28px;
+    }
+}
+
+/* 動きを減らす設定 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+```

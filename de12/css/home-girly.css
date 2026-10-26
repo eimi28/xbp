@@ -5,15 +5,17 @@
 ========================================== */
 
 :root {
-    --pink: #e5a8c2;
-    --pink-dark: #bd829e;
-    --pink-light: #fff0f6;
-    --pink-pale: #fff8fb;
-    --text: #765b6a;
-    --muted: #ac899a;
+    --blue: #dceaff;
+    --blue-light: #f0f6ff;
+    --lavender: #e8e1ff;
+    --lavender-dark: #aab8ed;
+    --text: #626789;
+    --muted: #9298b8;
+    --line: #e4e8f8;
     --white: #ffffff;
 }
 
+/* 基本設定 */
 * {
     box-sizing: border-box;
 }
@@ -26,955 +28,506 @@ html {
 body {
     min-height: 100vh;
     margin: 0;
-    padding: 0;
-
+    padding: 25px 24px 0;
     color: var(--text);
-    font-family:
-        "Hiragino Kaku Gothic ProN",
-        "Yu Gothic",
-        sans-serif;
-
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
     line-height: 1.8;
-
     background:
-        radial-gradient(
-            ellipse at 8% 12%,
-            rgba(255, 255, 255, 0.95),
-            transparent 30%
-        ),
-        radial-gradient(
-            ellipse at 92% 40%,
-            rgba(246, 200, 220, 0.45),
-            transparent 32%
-        ),
-        linear-gradient(
-            145deg,
-            #fff9fc,
-            #fceaf2 55%,
-            #fff5f9
-        );
-
-    overflow-x: clip;
+        radial-gradient(ellipse at 8% 12%, rgba(255,255,255,.95), transparent 32%),
+        radial-gradient(ellipse at 92% 30%, rgba(210,220,255,.55), transparent 35%),
+        linear-gradient(140deg, #f8fbff, #f0edff 55%, #f5f8ff);
+    overflow-x: hidden;
 }
 
-/* 背景の光 */
+/* 背景の飾り */
+body::before,
+body::after {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    color: rgba(157,170,225,.35);
+    animation: floatSoft 6s ease-in-out infinite;
+}
 
 body::before {
-    content: "";
-    position: fixed;
-    inset: -20%;
-    z-index: -2;
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            circle at 30% 35%,
-            rgba(255, 255, 255, 0.65),
-            transparent 20%
-        ),
-        radial-gradient(
-            circle at 70% 70%,
-            rgba(237, 175, 204, 0.18),
-            transparent 25%
-        );
-
-    animation: backgroundDrift 12s ease-in-out infinite alternate;
-}
-
-/* ==========================================
-   全体レイアウト
-========================================== */
-
-.portfolio {
-    width: min(100% - 48px, 1000px);
-    margin: 0 auto;
-}
-
-/* ==========================================
-   浮遊する装飾
-========================================== */
-
-.floating-decor {
-    position: fixed;
-    z-index: -1;
-    pointer-events: none;
-
-    color: rgba(204, 135, 168, 0.45);
-    animation: floatDecor 6s ease-in-out infinite;
-}
-
-.decor-heart {
-    top: 23%;
-    left: 5%;
+    content: "♡";
+    top: 27%;
+    left: 4%;
     font-size: 38px;
-    animation-delay: -1s;
 }
 
-.decor-star {
-    top: 16%;
-    right: 9%;
-    font-size: 35px;
+body::after {
+    content: "✧";
+    right: 5%;
+    bottom: 15%;
+    color: rgba(190,181,238,.48);
+    font-size: 36px;
     animation-delay: -3s;
 }
 
-.decor-flower {
-    top: 66%;
-    left: 8%;
-    font-size: 32px;
-    animation-delay: -2s;
-}
-
-.decor-sparkle {
-    top: 73%;
-    right: 7%;
-    font-size: 28px;
-    animation-delay: -4s;
-}
-
-/* ==========================================
-   ヘッダー
-========================================== */
-
+/* ヘッダー・ロゴ */
 .site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-
-    padding: 28px 0 20px;
-
-    animation: fadeDown 0.9s ease both;
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1050px);
+    margin: 0 auto;
 }
 
-.logo-link {
+.home-logo {
     display: inline-flex;
     align-items: center;
 }
 
-.logo-link img {
+.home-logo img {
     display: block;
-    width: 72px;
-    max-width: 100%;
+    width: 58px;
     height: auto;
-
-    transition:
-        transform 0.4s ease,
-        filter 0.4s ease;
+    transition: transform .3s ease, filter .3s ease;
 }
 
-.logo-link:hover img {
-    transform: rotate(-7deg) scale(1.08);
-    filter: drop-shadow(0 5px 8px #dfa4bf70);
+.home-logo:hover img {
+    transform: rotate(-6deg) scale(1.05);
+    filter: drop-shadow(0 5px 8px rgba(170,184,237,.4));
 }
 
-.header-label {
-    color: var(--muted);
-    font-size: 10px;
-    letter-spacing: 3px;
+/* ページ全体 */
+.portfolio {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1050px);
+    margin: 0 auto;
 }
 
-/* ==========================================
-   メインビジュアル
-========================================== */
-
-.hero {
-    padding: 30px 0 40px;
+/* タイトル */
+.page-intro {
+    padding: 24px 0 34px;
     text-align: center;
+    animation: fadeUp .8s ease both;
 }
 
 .eyebrow {
-    margin: 0 0 12px;
-
-    color: var(--pink-dark);
+    margin: 0 0 8px;
+    color: #939bc9;
     font-size: 10px;
-    letter-spacing: 5px;
-
-    animation: fadeUp 0.8s ease 0.15s both;
+    font-weight: 600;
+    letter-spacing: 4px;
 }
 
-.hero h1 {
+h1 {
     margin: 0;
-
-    color: #d79ab6;
-    font-family: Georgia, serif;
-    font-size: clamp(50px, 10vw, 100px);
+    color: #777eaf;
+    font-family: Georgia, "Yu Mincho", serif;
+    font-size: clamp(27px, 4vw, 37px);
     font-weight: normal;
-    letter-spacing: 8px;
-    line-height: 1.15;
-
-    text-shadow:
-        0 8px 30px rgba(218, 159, 186, 0.12);
-
-    animation: titleReveal 1.2s cubic-bezier(.2, .8, .2, 1) 0.2s both;
-}
-
-.hero h1 span {
-    display: inline-block;
-    color: #efbfd4;
-
-    animation: dotPulse 2s ease-in-out infinite;
-}
-
-.title-decoration {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-
-    margin: 14px 0 24px;
-
-    animation: fadeUp 0.8s ease 0.45s both;
-}
-
-.title-decoration > span:not(.decoration-heart) {
-    width: 55px;
-    height: 1px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #dfadc3
-    );
-}
-
-.title-decoration > span:last-child {
-    transform: rotate(180deg);
-}
-
-.decoration-heart {
-    color: #d998b5;
-    font-size: 19px;
-
-    animation: heartbeat 2s ease-in-out infinite;
-}
-
-.hero > h2 {
-    margin: 0;
-
-    color: #967184;
-    font-size: clamp(17px, 3vw, 22px);
-    font-weight: normal;
-    letter-spacing: 3px;
-
-    animation: fadeUp 0.8s ease 0.55s both;
-}
-
-.hero-description {
-    margin: 18px 0 0;
-
-    color: #a88a9a;
-    font-size: 13px;
     letter-spacing: 1px;
-
-    animation: fadeUp 0.8s ease 0.7s both;
 }
 
-/* スクロール案内 */
-
-.scroll-guide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-
-    margin-top: 45px;
-
-    color: #b28ca0;
-    font-size: 9px;
-    letter-spacing: 3px;
-
-    animation: fadeUp 0.8s ease 0.9s both;
-}
-
-.scroll-arrow {
+.title-heart {
     display: inline-block;
-    font-size: 20px;
-
-    animation: arrowDown 1.5s ease-in-out infinite;
+    color: #aab8ed;
+    animation: heartFloat 3s ease-in-out infinite;
 }
 
-/* ==========================================
-   作品セクション
-========================================== */
+.intro-text {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: .5px;
+}
 
-.works-section {
-    padding: 0px 0 50px;
+.sparkle-divider {
+    margin-top: 17px;
+    color: #aab8ed;
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+
+/* セクション */
+.work-section {
+    margin-top: 12px;
 }
 
 .section-heading {
-    margin-bottom: 35px;
-    text-align: center;
-
-    animation: fadeUp 0.8s ease both;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 17px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
 }
 
-.section-caption {
-    color: var(--pink-dark);
-    font-size: 10px;
-    letter-spacing: 4px;
-}
-
-.section-heading h2 {
-    margin: 8px 0;
-
-    color: #89687b;
-    font-family: Georgia, serif;
-    font-size: clamp(25px, 4vw, 34px);
-    font-weight: normal;
-}
-
-.section-heading h2 span {
-    display: inline-block;
-    color: #d99ab6;
-
-    animation: heartbeat 2s ease-in-out infinite;
-}
-
-.section-heading p {
-    margin: 8px 0;
-
-    color: #ac8d9d;
-    font-size: 12px;
-}
-
-/* ==========================================
-   カード一覧
-========================================== */
-
-.works {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 380px));
+.section-number {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    gap: 28px;
-}
-
-
-/* ==========================================
-   作品カード
-========================================== */
-
-.work-card {
-    position: relative;
-    display: block;
-    min-width: 0;
-    overflow: hidden;
-
-    padding: 18px;
-
-    color: inherit;
-    text-decoration: none;
-
-    background: rgba(255, 255, 255, 0.68);
-    border: 1px solid rgba(255, 255, 255, 0.95);
-    border-radius: 22px;
-
-    box-shadow:
-        0 8px 28px rgba(194, 143, 168, 0.09),
-        inset 0 0 18px rgba(255, 255, 255, 0.7);
-
-    backdrop-filter: blur(10px);
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease,
-        border-color 0.4s ease;
-
-    opacity: 0;
-    animation: cardReveal 0.9s cubic-bezier(.2, .8, .2, 1) both;
-}
-
-.card-design {
-    animation-delay: 0.2s;
-}
-
-.card-digital {
-    animation-delay: 0.4s;
-}
-
-/* ホバー時のカード */
-
-.work-card:hover {
-    transform: translateY(-9px);
-
-    border-color: #ffffff;
-
-    box-shadow:
-        0 18px 38px rgba(201, 137, 167, 0.16),
-        0 0 18px rgba(255, 199, 221, 0.35);
-}
-
-.work-card:active {
-    transform: translateY(-3px) scale(0.99);
-}
-
-/* カード上部 */
-
-.card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 0 3px 14px;
-}
-
-.card-number {
-    color: #bd91a6;
-    font-family: Georgia, serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-}
-
-.card-symbol {
-    color: #d7a0b8;
-    font-size: 21px;
-
-    transition: transform 0.4s ease;
-}
-
-.work-card:hover .card-symbol {
-    transform: rotate(12deg) scale(1.2);
-}
-
-/* ==========================================
-   イラストエリア
-========================================== */
-
-.card-illustration {
-    position: relative;
-    display: grid;
-    place-items: center;
-
-    min-height: 210px;
-    overflow: hidden;
-
-    border-radius: 16px;
-
-    transition: border-radius 0.4s ease;
-}
-
-.work-card:hover .card-illustration {
-    border-radius: 22px;
-}
-
-.illustration-design {
-    background:
-        radial-gradient(
-            circle at 25% 25%,
-            #ffffff,
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #fbe2ec,
-            #f4d2e3,
-            #fff0f6
-        );
-}
-
-.illustration-digital {
-    background:
-        radial-gradient(
-            circle at 75% 25%,
-            #ffffff,
-            transparent 25%
-        ),
-        linear-gradient(
-            135deg,
-            #eddef5,
-            #f4d9e8,
-            #fff0f7
-        );
-}
-
-/* 大きな文字 */
-
-.illustration-letter {
-    position: relative;
-    z-index: 2;
-
-    color: rgba(255, 255, 255, 0.92);
-    font-family: Georgia, serif;
-    font-size: 85px;
-    font-weight: normal;
-    letter-spacing: 4px;
-
-    text-shadow:
-        0 4px 18px rgba(186, 128, 157, 0.16);
-
-    transition: transform 0.5s ease;
-}
-
-.work-card:hover .illustration-letter {
-    transform: scale(1.12) rotate(-4deg);
-}
-
-/* デザインカードの装飾 */
-
-.illustration-circle {
-    position: absolute;
-
-    width: 145px;
-    height: 145px;
-
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-
-    animation: circleRotate 14s linear infinite;
-}
-
-.illustration-star {
-    position: absolute;
-    color: white;
-
-    text-shadow: 0 0 15px #ffffff;
-}
-
-.star-one {
-    top: 22%;
-    left: 22%;
-    font-size: 27px;
-
-    animation: twinkle 2s ease-in-out infinite;
-}
-
-.star-two {
-    right: 23%;
-    bottom: 20%;
-    font-size: 21px;
-
-    animation: twinkle 2.5s ease-in-out infinite 0.5s;
-}
-
-/* デジタルカードの装飾 */
-
-.digital-orbit {
-    position: absolute;
-
-    width: 155px;
-    height: 155px;
-
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-}
-
-.orbit-one {
-    animation: circleRotate 12s linear infinite;
-}
-
-.orbit-two {
-    width: 185px;
-    height: 110px;
-
-    transform: rotate(-35deg);
-
-    animation: orbitMove 6s ease-in-out infinite alternate;
-}
-
-.digital-star {
-    top: 22%;
-    right: 24%;
-    font-size: 30px;
-
-    animation: twinkle 2s ease-in-out infinite;
-}
-
-/* ==========================================
-   カード内の文字
-========================================== */
-
-.card-info {
-    padding: 23px 5px 5px;
-}
-
-.category {
-    color: #bd8ca4;
-    font-size: 9px;
-    letter-spacing: 2.5px;
-}
-
-.card-info h3 {
-    margin: 9px 0;
-
-    color: #795c70;
-    font-size: clamp(15px, 2vw, 19px);
-    font-weight: 500;
-    line-height: 1.7;
-}
-
-.card-info p {
-    margin: 0;
-
-    color: #a48b99;
-    font-size: 12px;
-}
-
-/* カード下部のリンク */
-
-.card-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-top: 24px;
-    padding-top: 14px;
-
-    color: #b17e99;
-    font-size: 9px;
-    letter-spacing: 2px;
-
-    border-top: 1px solid #f2e1e9;
-}
-
-.link-arrow {
-    display: grid;
-    place-items: center;
-
     width: 31px;
     height: 31px;
-
-    color: #b9829e;
-    font-size: 16px;
-
-    background: #fff1f6;
-    border: 1px solid #f5dce7;
+    flex: 0 0 31px;
+    color: #858bc4;
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #e4edff, #eee7ff);
+    border: 1px solid rgba(255,255,255,.9);
     border-radius: 50%;
+}
 
+h2 {
+    margin: 0;
+    color: #777eaf;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* カード一覧 */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* カード */
+.work-card {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    animation: cardAppear .7s ease both;
+}
+
+.work-card:nth-child(2) {
+    animation-delay: .1s;
+}
+
+.work-card:nth-child(3) {
+    animation-delay: .2s;
+}
+
+.work-card a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 270px;
+    height: 100%;
+    padding: 17px;
+    color: var(--text);
+    text-decoration: none;
+    background: rgba(255,255,255,.82);
+    border: 1px solid rgba(255,255,255,.98);
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(143,157,208,.13);
     transition:
-        transform 0.35s ease,
-        color 0.35s ease,
-        background 0.35s ease;
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+    overflow: hidden;
 }
 
-.work-card:hover .link-arrow {
+/* 卡片上方的编号 */
+.card-number {
+    align-self: flex-start;
+    color: #969dcc;
+    font-family: Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* 卡片内的装饰图案 */
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 105px;
+    margin: 14px 0 17px;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 46px;
+    background: linear-gradient(135deg, #dceaff, #e7e0ff 58%, #f0eaff);
+    border-radius: 14px;
+    transition: transform .4s ease;
+}
+
+.work-card:nth-child(2) .card-icon {
+    background: linear-gradient(135deg, #e8e1ff, #dceaff);
+}
+
+.work-card:nth-child(3) .card-icon {
+    background: linear-gradient(135deg, #e5edff, #f0eaff);
+}
+
+.card-category {
+    margin-bottom: 5px;
+    color: #929ac8;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.card-title {
+    color: #626789;
+    font-size: 15px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.card-description {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* 卡片下方 */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 14px;
+    color: #929ac8;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    border-top: 1px solid #e8ebf8;
+}
+
+.card-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    flex: 0 0 27px;
+    color: #858bc4;
+    font-size: 13px;
+    letter-spacing: 0;
+    background: linear-gradient(135deg, #e4edff, #eee7ff);
+    border: 1px solid #e0e6fa;
+    border-radius: 50%;
+    transition: transform .3s ease, color .3s ease, background .3s ease;
+}
+
+/* マウスを乗せたとき */
+.work-card a:hover {
+    transform: translateY(-5px);
+    border-color: #ffffff;
+    box-shadow:
+        0 16px 34px rgba(143,157,208,.2),
+        0 0 18px rgba(206,215,255,.28);
+}
+
+.work-card a:hover .card-icon {
+    transform: scale(1.025);
+}
+
+.work-card a:hover .card-arrow {
     transform: rotate(45deg);
-
-    color: white;
-    background: #dba3bd;
+    color: #ffffff;
+    background: linear-gradient(135deg, #aebdec, #c2b7ef);
 }
 
-/* ==========================================
-   フッター
-========================================== */
+/* 演習ノート */
+.notes-section {
+    margin-top: 39px;
+}
 
+.notes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.notes-grid .work-card a {
+    min-height: 225px;
+}
+
+/* フッター */
 .site-footer {
-    padding: 30px 0 40px;
-
+    margin-top: 60px;
+    padding: 24px 0 30px;
     text-align: center;
-    border-top: 1px solid rgba(218, 172, 194, 0.4);
+    border-top: 1px solid rgba(174,187,232,.4);
 }
 
 .footer-decoration {
-    color: #d9a1b9;
-    font-size: 19px;
+    color: #aab8ed;
+    font-size: 16px;
     letter-spacing: 5px;
-
-    animation: heartbeat 2.5s ease-in-out infinite;
 }
 
 .site-footer p {
-    margin: 10px 0;
-
-    color: #a98296;
+    margin: 8px 0 2px;
+    color: #858bc4;
     font-family: Georgia, serif;
-    font-size: 13px;
+    font-size: 12px;
 }
 
-.site-footer > span {
-    color: #c3a1b1;
+.site-footer span {
+    color: #a0a5c2;
     font-size: 9px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
-/* ==========================================
-   アニメーション
-========================================== */
-
-@keyframes backgroundDrift {
-    from {
-        transform: translate3d(-1%, 0, 0) scale(1);
-        opacity: 0.65;
-    }
-
-    to {
-        transform: translate3d(1%, -1%, 0) scale(1.04);
-        opacity: 1;
-    }
-}
-
-@keyframes floatDecor {
-    0%, 100% {
-        transform: translateY(0) rotate(-5deg);
-        opacity: 0.45;
-    }
-
-    50% {
-        transform: translateY(-20px) rotate(8deg);
-        opacity: 0.9;
-    }
-}
-
-@keyframes fadeDown {
-    from {
-        opacity: 0;
-        transform: translateY(-15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* アニメーション */
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(22px);
+        transform: translateY(12px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes titleReveal {
+@keyframes cardAppear {
     from {
         opacity: 0;
-        transform: translateY(25px) scale(0.96);
-        filter: blur(5px);
+        transform: translateY(14px);
     }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-    }
-}
-
-@keyframes cardReveal {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes heartbeat {
+@keyframes floatSoft {
     0%, 100% {
-        transform: scale(1);
+        transform: translateY(0) rotate(-5deg);
+        opacity: .45;
     }
-
     50% {
-        transform: scale(1.13);
+        transform: translateY(-12px) rotate(8deg);
+        opacity: .85;
     }
 }
 
-@keyframes dotPulse {
-    0%, 100% {
-        opacity: 0.65;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-@keyframes arrowDown {
+@keyframes heartFloat {
     0%, 100% {
         transform: translateY(0);
     }
-
     50% {
-        transform: translateY(7px);
+        transform: translateY(-4px);
     }
 }
 
-@keyframes circleRotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes orbitMove {
-    from {
-        transform: rotate(-35deg) scale(0.95);
-    }
-
-    to {
-        transform: rotate(-15deg) scale(1.05);
-    }
-}
-
-@keyframes twinkle {
-    0%, 100% {
-        opacity: 0.55;
-        transform: scale(0.9);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.18);
-    }
-}
-
-/* ==========================================
-   タブレット
-========================================== */
-
+/* タブレット */
 @media (max-width: 760px) {
-    .portfolio {
-        width: min(100% - 36px, 600px);
+    body {
+        padding: 20px 18px 0;
     }
 
-    .hero {
-        padding: 45px 0 55px;
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
     }
 
-    .works {
-        gap: 18px;
+    .work-card a {
+        min-height: 245px;
+        padding: 14px;
     }
 
-    .work-card {
+    .card-icon {
+        min-height: 90px;
+        font-size: 40px;
+    }
+
+    .notes-grid .work-card a {
+        min-height: 205px;
+    }
+}
+
+/* スマートフォン */
+@media (max-width: 520px) {
+    body {
+        padding: 17px 15px 0;
+    }
+
+    .home-logo img {
+        width: 49px;
+    }
+
+    .page-intro {
+        padding: 22px 0 28px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .intro-text {
+        font-size: 11px;
+    }
+
+    .section-heading {
+        gap: 10px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    .section-number {
+        width: 28px;
+        height: 28px;
+        flex-basis: 28px;
+    }
+
+    .card-grid,
+    .notes-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .work-card a,
+    .notes-grid .work-card a {
+        min-height: 0;
         padding: 13px;
+        border-radius: 16px;
     }
 
-    .card-illustration {
-        min-height: 170px;
+    .card-icon {
+        min-height: 78px;
+        margin: 10px 0 12px;
+        font-size: 34px;
     }
 
-    .illustration-letter {
-        font-size: 65px;
-    }
-}
-
-/* ==========================================
-   スマートフォン
-========================================== */
-
-@media (max-width: 560px) {
-    .portfolio {
-        width: calc(100% - 34px);
+    .card-title {
+        font-size: 14px;
     }
 
-    .site-header {
-        padding-top: 20px;
+    .card-footer {
+        margin-top: 13px;
+        padding-top: 10px;
     }
 
-    .logo-link img {
-        width: 58px;
+    .notes-section {
+        margin-top: 30px;
     }
 
-    .header-label {
-        font-size: 8px;
-        letter-spacing: 1.5px;
+    .site-footer {
+        margin-top: 40px;
     }
 
-    .hero {
-        padding: 45px 0 55px;
+    body::before {
+        left: 1%;
+        font-size: 27px;
     }
 
-    .hero h1 {
-        font-size: clamp(76px, 22vw, 110px);
-        letter-spacing: 6px;
-    }
-
-    .eyebrow {
-        font-size: 9px;
-        letter-spacing: 3px;
-    }
-
-    .hero > h2 {
-        font-size: 16px;
-        letter-spacing: 1px;
-    }
-
-    .hero-description {
-        font-size: 12px;
-    }
-
-    .works-section {
-        padding: 15px 0 55px;
-    }
-
-    
-    .works {
-    display: flex;
-    gap: 22px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-}
-   
-    .work-card {
-    flex: 0 0 280px;
-    scroll-snap-align: center;
-}
-
-    .work-card {
-        padding: 15px;
-        border-radius: 19px;
-    }
-
-    .card-illustration {
-        min-height: 200px;
-    }
-
-    .illustration-letter {
-        font-size: 82px;
-    }
-
-    .card-info h3 {
-        font-size: 17px;
-    }
-
-    .floating-decor {
-        opacity: 0.45;
-    }
-
-    .decor-heart {
-        left: 2%;
-        font-size: 25px;
-    }
-
-    .decor-star {
-        right: 3%;
-        font-size: 25px;
-    }
-
-    .decor-flower {
-        left: 3%;
-        font-size: 23px;
-    }
-
-    .decor-sparkle {
-        right: 3%;
-        font-size: 22px;
+    body::after {
+        right: 2%;
+        font-size: 28px;
     }
 }
 
-/* ==========================================
-   動きを減らす設定への配慮
-========================================== */
-
+/* 動きを控えたい環境への配慮 */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
     }
 }
 ```

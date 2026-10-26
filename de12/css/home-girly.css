@@ -183,8 +183,9 @@ h2 {
 /* カード一覧 */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 300px));
+    justify-content: center;
+    gap: 28px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -210,7 +211,7 @@ h2 {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 270px;
+    min-height: 330px;
     height: 100%;
     padding: 17px;
     color: var(--text);
@@ -333,11 +334,12 @@ h2 {
 }
 
 .notes-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 300));
+    justify-content: center;
 }
 
 .notes-grid .work-card a {
-    min-height: 225px;
+    min-height: 330px;
 }
 
 /* フッター */
@@ -472,12 +474,31 @@ h2 {
         flex-basis: 28px;
     }
 
-    .card-grid,
-    .notes-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 12px;
+     
+
+    .work-card {
+        flex: 0 0 260px; /* カード幅 */
+        scroll-snap-align: start;
     }
 
+}
+@media (max-width: 520px) {
+
+    .card-grid,
+    .notes-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+        padding-bottom: 10px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .work-card {
+        flex: 0 0 260px; /* カード幅 */
+        scroll-snap-align: start;
+    }
+
+}
     .work-card a,
     .notes-grid .work-card a {
         min-height: 0;

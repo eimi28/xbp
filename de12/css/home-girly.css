@@ -211,7 +211,7 @@ h2 {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 330px;
+    min-height: 340px;
     height: 100%;
     padding: 17px;
     color: var(--text);
@@ -339,7 +339,7 @@ h2 {
 }
 
 .notes-grid .work-card a {
-    min-height: 330px;
+    min-height: 340px;
 }
 
 /* フッター */

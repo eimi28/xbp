@@ -1,0 +1,135 @@
+
+/* ==============================
+   PINK RIBBON DESIGN 
+============================== */
+
+/* 全体 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 45px 5%;
+    background-color: #fff7fa;
+    color: #66515b;
+    font-family: sans-serif;
+    font-size: 15px;
+    line-height: 2;
+    text-align: left;
+}
+
+/* メインタイトル */
+h2 {
+    display: table;
+    position: relative;
+    margin: 10px 0 45px;
+    padding: 10px 30px;
+    background: #f3c4d5;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    box-shadow: 0 5px 12px rgba(210, 145, 170, 0.2);
+}
+
+
+/* 見出し */
+h3 {
+    display: table;
+    position: relative;
+    margin: 55px 0 25px;
+    padding: 8px 25px;
+    background: #fce5ed;
+    color: #c77e9b;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-radius: 30px;
+    border-left: 5px solid #e7a9bf;
+}
+
+h3::after {
+    content: " ";
+    color: #d98ca8;
+}
+
+/* 文章・写真のカード */
+div {
+    max-width: 950px;
+    margin: 20px 0;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #f5dce5;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(190, 130, 155, 0.08);
+    text-align: left;
+}
+
+/* 写真 */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    border: none;
+    border-radius: 12px;
+    box-shadow: none;
+}
+
+/* 設計ファイルのリンク */
+h3 a {
+    color: #c77e9b;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+h3 a:hover {
+    color: #e5a0ba;
+    text-decoration: underline;
+}
+
+/* カードにふんわりした雰囲気 */
+div:hover {
+    border-color: #efc5d5;
+    transition: 0.3s;
+}
+
+/* スマートフォン対応 */
+@media screen and (max-width: 600px) {
+
+    body {
+        padding: 25px 15px;
+        font-size: 13px;
+    }
+
+    h2 {
+        font-size: 19px;
+        padding: 12px 35px;
+        letter-spacing: 1px;
+    }
+
+    h3 {
+        font-size: 17px;
+        padding: 7px 18px;
+        margin-top: 40px;
+    }
+
+    div {
+        padding: 15px;
+        line-height: 1.9;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+/* 画像を囲む白いカードをなくす */
+div:has(> img) {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 20px 0;
+}

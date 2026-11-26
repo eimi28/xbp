@@ -1,0 +1,119 @@
+
+/* ページ全体 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #eef8ff, #f3efff);
+    color: #46516b;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.9;
+}
+
+/* メインタイトル */
+h2 {
+    max-width: 1000px;
+    margin: 0 auto 35px;
+    padding: 20px 15px;
+    background: linear-gradient(120deg, #c9e8fa, #ded5fa);
+    color: #394968;
+    text-align: center;
+    font-size: 25px;
+    line-height: 1.5;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(119, 147, 190, 0.12);
+}
+
+/* 説明文のカード */
+body > div {
+    max-width: 900px;
+    margin: 0 auto 10px;
+    padding: 25px 35px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #e0e7f5;
+    border-radius: 15px;
+    color: #56627a;
+    text-align: center;
+    font-size: 15px;
+    box-shadow: 0 4px 14px rgba(120, 140, 180, 0.08);
+}
+
+/* 各セクションの見出し */
+h3 {
+    max-width: 900px;
+    margin: 45px auto 18px;
+    padding: 12px 20px;
+    color: #6d70a8;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #d8d6f5;
+}
+
+/* ソースコード */
+pre {
+    max-width: 1000px;
+    margin: 20px auto !important;
+    padding: 25px !important;
+    background: #f8f9ff !important;
+    color: #46516b !important;
+    border: 1px solid #dfe3f5;
+    border-radius: 15px !important;
+    box-shadow: 0 5px 18px rgba(120, 140, 180, 0.10);
+    overflow-x: auto;
+    text-align: left;
+}
+
+/* コード部分 */
+pre code {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* スマートフォン対応 */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 30px 12px;
+    }
+
+    h2 {
+        font-size: 21px;
+        padding: 22px 15px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    body > div {
+        padding: 20px 15px;
+        font-size: 14px;
+    }
+
+    pre {
+        padding: 15px !important;
+    }
+}
+
+body > div {
+    max-width: 900px;
+    margin: 0 auto 35px;
+    padding: 1.7em 35px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #e0e7f5;
+    border-radius: 15px;
+    color: #56627a;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.7;
+    box-shadow: 0 4px 14px rgba(120, 140, 180, 0.08);
+}
+
+/* カード末尾の余分な改行をなくす */
+body > div br:nth-last-of-type(-n+2) {
+    display: none;
+}
